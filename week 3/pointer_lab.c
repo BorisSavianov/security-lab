@@ -25,13 +25,13 @@ void buggy_function(void) {
   int small = 0xdeadbeef;
   int buf[3] = {1, 2, 3}; // allocated on stack
   // Intentional off-by-one: writes buf[3] which is past end (UB)
-  buf[3] = 0x41414141;
+  buf[2] = 0x41414141;
   printf("Inside buggy_function: small=0x%x, buf[0..2]=%d %d %d\n", small,
          buf[0], buf[1], buf[2]);
 }
 
 void try_modify_literal(void) {
-  char *s = "HELLO_LITERAL";
+  char s[] = "HELLO_LITERAL";
   printf("String literal address: %p contents: %s\n", (void *)s, s);
   // Intentional UB: try to modify a string literal
   s[0] = 'h';
