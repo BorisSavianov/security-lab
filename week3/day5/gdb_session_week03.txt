@@ -1,0 +1,216 @@
+Breakpoint 1 at 0x4011bf: file pointers_demo.c, line 9.
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/usr/lib/libthread_db.so.1".
+
+Breakpoint 1, main () at pointers_demo.c:9
+⚠️ warning: 9	pointers_demo.c: No such file or directory
+arr = {0, 0, -134340976}
+p = 0x0
+arr2 = 0x0
+$1 = (int *) 0x0
+type = int [3]
+0x7fffffffe080:	0	0	-134340976
+[Inferior 1 (process 6638) exited normally]
+Breakpoint 2 at 0x40116f: file dyn_array.c, line 6.
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/usr/lib/libthread_db.so.1".
+
+Breakpoint 1, main () at dyn_array.c:6
+⚠️ warning: 6	dyn_array.c: No such file or directory
+7	in dyn_array.c
+8	in dyn_array.c
+$2 = (int *) 0x405310
+0x405310:	0	0	0
+LEGEND: STACK | HEAP | CODE | DATA | WX | RODATA
+             Start                End Perm     Size  Offset File (set vmmap-prefer-relpaths on)
+          0x400000           0x401000 r--p     1000       0 ../day2/dyn_array
+          0x401000           0x402000 r-xp     1000    1000 ../day2/dyn_array
+          0x402000           0x403000 r--p     1000    2000 ../day2/dyn_array
+          0x403000           0x404000 r--p     1000    2000 ../day2/dyn_array
+          0x404000           0x405000 rw-p     1000    3000 ../day2/dyn_array
+          0x405000           0x426000 rw-p    21000       0 [heap]
+    0x7ffff7c00000     0x7ffff7c24000 r--p    24000       0 /usr/lib/libc.so.6
+    0x7ffff7c24000     0x7ffff7d95000 r-xp   171000   24000 /usr/lib/libc.so.6
+    0x7ffff7d95000     0x7ffff7e04000 r--p    6f000  195000 /usr/lib/libc.so.6
+    0x7ffff7e04000     0x7ffff7e08000 r--p     4000  203000 /usr/lib/libc.so.6
+    0x7ffff7e08000     0x7ffff7e0a000 rw-p     2000  207000 /usr/lib/libc.so.6
+    0x7ffff7e0a000     0x7ffff7e12000 rw-p     8000       0 [anon_7ffff7e0a]
+    0x7ffff7f8d000     0x7ffff7f92000 rw-p     5000       0 [anon_7ffff7f8d]
+    0x7ffff7fba000     0x7ffff7fbe000 r--p     4000       0 [vvar]
+    0x7ffff7fbe000     0x7ffff7fc0000 r--p     2000       0 [vvar_vclock]
+    0x7ffff7fc0000     0x7ffff7fc2000 r-xp     2000       0 [vdso]
+    0x7ffff7fc2000     0x7ffff7fc3000 r--p     1000       0 /usr/lib/ld-linux-x86-64.so.2
+    0x7ffff7fc3000     0x7ffff7fed000 r-xp    2a000    1000 /usr/lib/ld-linux-x86-64.so.2
+    0x7ffff7fed000     0x7ffff7ffb000 r--p     e000   2b000 /usr/lib/ld-linux-x86-64.so.2
+    0x7ffff7ffb000     0x7ffff7ffd000 r--p     2000   39000 /usr/lib/ld-linux-x86-64.so.2
+    0x7ffff7ffd000     0x7ffff7ffe000 rw-p     1000   3b000 /usr/lib/ld-linux-x86-64.so.2
+    0x7ffff7ffe000     0x7ffff7fff000 rw-p     1000       0 [anon_7ffff7ffe]
+    0x7ffffffde000     0x7ffffffff000 rw-p    21000       0 [stack]
+0xffffffffff600000 0xffffffffff601000 --xp     1000       0 [vsyscall]
+Breakpoint 3 at 0x40121a: file dyn_array.c, line 20.
+
+Breakpoint 3, main () at dyn_array.c:20
+20	in dyn_array.c
+$3 = (int *) 0x405310
+21	in dyn_array.c
+$4 = (int *) 0x405310
+0x405310:	0	10	20	0
+0x405320:	0
+[Inferior 1 (process 6641) exited normally]
+❌️ Error in re-setting breakpoint 3: No source file named dyn_array.c.
+Breakpoint 4 at 0x401266: file linked_list.c, line 39.
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/usr/lib/libthread_db.so.1".
+
+Breakpoint 1, main () at linked_list.c:39
+39	  node *head = NULL;
+Breakpoint 5 at 0x4012e7: file linked_list.c, line 54.
+
+Breakpoint 5, main () at linked_list.c:54
+54	  node *dangling = head->next; // second node
+$5 = (node *) 0x405390
+$6 = {
+  v = 99,
+  next = 0x405370
+}
+0x405390:	99	0
+Breakpoint 6 at 0x4012f3: file linked_list.c, line 55.
+
+Breakpoint 6, main () at linked_list.c:55
+55	  free(head);                  // free first node
+$7 = (node *) 0x405390
+$8 = {
+  v = 99,
+  next = 0x405370
+}
+0x405390:	0x0000000000000063	0x0000000000405370
+Breakpoint 7 at 0x4012ff: file linked_list.c, line 56.
+
+Breakpoint 7, main () at linked_list.c:56
+56	  head = NULL;
+$9 = (node *) 0x405390
+$10 = {
+  v = 1029,
+  next = 0x5d53d7a373603aa7
+}
+0x405390:	0x0000000000000405	0x5d53d7a373603aa7
+LEGEND: STACK | HEAP | CODE | DATA | WX | RODATA
+             Start                End Perm     Size  Offset File (set vmmap-prefer-relpaths on)
+          0x400000           0x401000 r--p     1000       0 ../day3/linked_list
+          0x401000           0x402000 r-xp     1000    1000 ../day3/linked_list
+          0x402000           0x403000 r--p     1000    2000 ../day3/linked_list
+          0x403000           0x404000 r--p     1000    2000 ../day3/linked_list
+          0x404000           0x405000 rw-p     1000    3000 ../day3/linked_list
+          0x405000           0x426000 rw-p    21000       0 [heap]
+    0x7ffff7c00000     0x7ffff7c24000 r--p    24000       0 /usr/lib/libc.so.6
+    0x7ffff7c24000     0x7ffff7d95000 r-xp   171000   24000 /usr/lib/libc.so.6
+    0x7ffff7d95000     0x7ffff7e04000 r--p    6f000  195000 /usr/lib/libc.so.6
+    0x7ffff7e04000     0x7ffff7e08000 r--p     4000  203000 /usr/lib/libc.so.6
+    0x7ffff7e08000     0x7ffff7e0a000 rw-p     2000  207000 /usr/lib/libc.so.6
+    0x7ffff7e0a000     0x7ffff7e12000 rw-p     8000       0 [anon_7ffff7e0a]
+    0x7ffff7f8d000     0x7ffff7f92000 rw-p     5000       0 [anon_7ffff7f8d]
+    0x7ffff7fba000     0x7ffff7fbe000 r--p     4000       0 [vvar]
+    0x7ffff7fbe000     0x7ffff7fc0000 r--p     2000       0 [vvar_vclock]
+    0x7ffff7fc0000     0x7ffff7fc2000 r-xp     2000       0 [vdso]
+    0x7ffff7fc2000     0x7ffff7fc3000 r--p     1000       0 /usr/lib/ld-linux-x86-64.so.2
+    0x7ffff7fc3000     0x7ffff7fed000 r-xp    2a000    1000 /usr/lib/ld-linux-x86-64.so.2
+    0x7ffff7fed000     0x7ffff7ffb000 r--p     e000   2b000 /usr/lib/ld-linux-x86-64.so.2
+    0x7ffff7ffb000     0x7ffff7ffd000 r--p     2000   39000 /usr/lib/ld-linux-x86-64.so.2
+    0x7ffff7ffd000     0x7ffff7ffe000 rw-p     1000   3b000 /usr/lib/ld-linux-x86-64.so.2
+    0x7ffff7ffe000     0x7ffff7fff000 rw-p     1000       0 [anon_7ffff7ffe]
+    0x7ffffffde000     0x7ffffffff000 rw-p    21000       0 [stack]
+0xffffffffff600000 0xffffffffff601000 --xp     1000       0 [vsyscall]
+$11 = (void *) 0x405390
+$12 = (node *) 0x405390
+$13 = (node *) 0x405390
+0x405390:	0x41	0x41	0x41	0x41	0x41	0x41	0x41	0x41
+0x405398:	0x41	0x41	0x41	0x41	0x41	0x41	0x41	0x41
+$14 = (node *) 0x405370
+$15 = {
+  v = 3,
+  next = 0x405350
+}
+❌️ Error in re-setting breakpoint 5: No source file named linked_list.c.
+❌️ Error in re-setting breakpoint 6: No source file named linked_list.c.
+❌️ Error in re-setting breakpoint 7: No source file named linked_list.c.
+Breakpoint 8 at 0x40113a: file stack.c, line 5.
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/usr/lib/libthread_db.so.1".
+
+Breakpoint 1, main () at stack.c:13
+13	  int r = f(5, 7);
+Dump of assembler code for function f:
+   0x0000000000401130 <+0>:	push   rbp
+   0x0000000000401131 <+1>:	mov    rbp,rsp
+   0x0000000000401134 <+4>:	mov    DWORD PTR [rbp-0x4],edi
+   0x0000000000401137 <+7>:	mov    DWORD PTR [rbp-0x8],esi
+   0x000000000040113a <+10>:	mov    eax,DWORD PTR [rbp-0x4]
+   0x000000000040113d <+13>:	mov    DWORD PTR [rbp-0x20],eax
+   0x0000000000401140 <+16>:	mov    eax,DWORD PTR [rbp-0x8]
+   0x0000000000401143 <+19>:	mov    DWORD PTR [rbp-0x1c],eax
+   0x0000000000401146 <+22>:	mov    eax,DWORD PTR [rbp-0x4]
+   0x0000000000401149 <+25>:	add    eax,DWORD PTR [rbp-0x8]
+   0x000000000040114c <+28>:	mov    DWORD PTR [rbp-0x18],eax
+   0x000000000040114f <+31>:	mov    eax,DWORD PTR [rbp-0x4]
+   0x0000000000401152 <+34>:	sub    eax,DWORD PTR [rbp-0x8]
+   0x0000000000401155 <+37>:	mov    DWORD PTR [rbp-0x14],eax
+   0x0000000000401158 <+40>:	mov    eax,DWORD PTR [rbp-0x20]
+   0x000000000040115b <+43>:	add    eax,DWORD PTR [rbp-0x1c]
+   0x000000000040115e <+46>:	pop    rbp
+   0x000000000040115f <+47>:	ret
+End of assembler dump.
+
+Breakpoint 8, f (a=5, b=7) at stack.c:5
+5	  buf[0] = a;
+Stack level 0, frame at 0x7fffffffe080:
+ rip = 0x40113a in f (stack.c:5); saved rip = 0x40117e
+ called by frame at 0x7fffffffe0a0
+ source language c.
+ Arglist at 0x7fffffffe070, args: a=5, b=7
+ Locals at 0x7fffffffe070, Previous frame's sp is 0x7fffffffe080
+ Saved registers:
+  rbp at 0x7fffffffe070, rip at 0x7fffffffe078
+rax            0x7ffff7e0fe28      140737352105512
+rbx            0x0                 0
+rcx            0x403df0            4210160
+rdx            0x7fffffffe1c8      140737488347592
+rsi            0x7                 7
+rdi            0x5                 5
+rbp            0x7fffffffe070      0x7fffffffe070
+rsp            0x7fffffffe070      0x7fffffffe070
+r8             0x7ffff7e08680      140737352074880
+r9             0x7ffff7e09fe0      140737352081376
+r10            0x7fffffffddd0      140737488346576
+r11            0x203               515
+r12            0x7fffffffe1b8      140737488347576
+r13            0x1                 1
+r14            0x7ffff7ffd000      140737354125312
+r15            0x403df0            4210160
+rip            0x40113a            0x40113a <f+10>
+eflags         0x202               [ IF ]
+cs             0x33                51
+ss             0x2b                43
+ds             0x0                 0
+es             0x0                 0
+fs             0x0                 0
+gs             0x0                 0
+fs_base        0x7ffff7f8d740      140737353668416
+gs_base        0x0                 0
+$16 = 0x7fffffffe070
+0x7fffffffe070:	0x00007fffffffe090	0x000000000040117e
+0x7fffffffe080:	0x0000000000000000	0x00000000f7fe1e90
+0x7fffffffe090:	0x00007fffffffe130	0x00007ffff7c27635
+0x7fffffffe0a0:	0x00007ffff7fc2000	0x00007fffffffe1b8
+0x7fffffffe0b0:	0x00000001ffffe0f0	0x0000000000401160
+0x7fffffffe0c0:	0x0000000000000000	0x40c58a7d53f565a1
+0x7fffffffe0d0:	0x00007fffffffe1b8	0x0000000000000001
+0x7fffffffe0e0:	0x00007ffff7ffd000	0x0000000000403df0
+0x7fffffffe0f0:	0x40c58a7d50d565a1	0x40c59a067a4b65a1
+0x7fffffffe100:	0x00007fff00000000	0x0000000000000000
+$17 = (int (*)[4]) 0x7fffffffe050
+0x7fffffffe050:	0	0	0	0
+$18 = 42
+[Inferior 1 (process 6649) exited normally]
+Warning: 'set logging off', an alias for the command 'set logging enabled', is deprecated.
+Use 'set logging enabled off'.
+
