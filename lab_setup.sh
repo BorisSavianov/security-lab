@@ -5,7 +5,9 @@ sudo pacman -S --needed --noconfirm git vim nano bash-completion base-devel pyth
 sudo usermod -aG vboxusers $USER || true
 
 # Install essential dev tools
-sudo pacman -S --needed base-devel gcc make git gdb strace ltrace binutils
+sudo pacman -S --needed base-devel gcc make git gdb strace ltrace binutils nasm file
+# update & install core tools (run once)
+sudo pacman -Syu
 
 # Install python (for pwndbg setup)
 sudo pacman -S --needed python python-pip
